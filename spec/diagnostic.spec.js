@@ -54,7 +54,7 @@ describe('enumerable', function() {
 
   });
 
-  describe('find', function() {
+  describe('first', function() {
 
     var withDuplicates = [{
       name: 'first',
@@ -66,7 +66,7 @@ describe('enumerable', function() {
       name: 'repeat',
     }, {
       name: 'fifth',
-    }, ]; // jscs:ignore
+    }, ]; // jscs: ignore
 
     it('returns correct object in array', function() {
       expect(assessment.first(withDuplicates,
