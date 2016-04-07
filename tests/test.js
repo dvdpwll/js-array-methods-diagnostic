@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const assessment = require('./lib/diagnostic.js');
+const assessment = require('../lib/diagnostic.js');
 
 describe('Reduce', function() {
   let array = [-1, -2, -3, -4, -5];
@@ -42,6 +42,7 @@ let array = [-1, -2, -3, -4, -5];
     let answer = [-1, -3, -5];
     it('returns correct array for not even predicate', function() {
       assert.equal(assessment.select(array, n => n % 2), answer);
+      // expect(assessment.select(array, n => n % 2)).to.deep.equal(answer);
     });
   });
 
