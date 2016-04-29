@@ -1,24 +1,28 @@
 'use strict';
 
-const assert = require('assert');
+const chai = require('chai');
+const expect = chai.expect;
+
+// const assert = require('assert');
 const assessment = require('../lib/diagnostic.js');
 
 describe('Reduce', function() {
   let array = [-1, -2, -3, -4, -5];
     describe('sum', function () {
       it('returns the sum of the array', function () {
-        assert.equal(array.reduce(assessment.sum),-15);
+        expect(array.reduce(assessment.sum)).to.equal(-15);
       });
     });
 
-//m test1
+// above working
 
   describe('min', function() {
     it('returns the minimum of the array elements', function() {
-      assert.equal(array.reduce(assessment.min), -5);
+      expect(array.reduce(assessment.min)).to.equal(-5);
     });
   });
 });
+
 
 //reduce end
 
@@ -26,22 +30,22 @@ describe('enumerable', function() {
 let array = [-1, -2, -3, -4, -5];
   describe('any', function() {
     it('returns false for greater than 0 predicate', function() {
-      assert.equal(assessment.any(array, n => n > 0), false);
+      expect(assessment.any(array, n => n > 0)).to.equal(false);
     });
 
     it('returns true for less than 0 predicate', function() {
-      assert.equal(assessment.any(array, n => n < 0), true);
+      expect(assessment.any(array, n => n < 0)).to.equal(true);
     });
 
     it('returns true for equal -3 predicate', function() {
-      assert.equal(assessment.any(array, n => n === -3 ), true);
+      expect(assessment.any(array, n => n === -3 )).to.equal(true);
     });
   });
 
   describe('select', function() {
     let answer = [-1, -3, -5];
     it('returns correct array for not even predicate', function() {
-      assert.equal(assessment.select(array, n => n % 2), answer);
+      expect(assessment.select(array, n => n % 2)).to.deep.equal(answer);
       // expect(assessment.select(array, n => n % 2)).to.deep.equal(answer);
     });
   });
@@ -61,13 +65,13 @@ let array = [-1, -2, -3, -4, -5];
     }, ];
 
     it('returns correct object in array', function() {
-      assert.equal(assessment.first(withDuplicates,
-        o => o.name === 'repeat'), withDuplicates[1]);
+      expect(assessment.first(withDuplicates,
+        o => o.name === 'repeat')).to.equal(withDuplicates[1]);
     });
 
     it('returns undefined for unmatched object', function() {
-      assert.equal(assessment.first(withDuplicates,
-        o => o.name === 'fourth'), undefined);
+      expect(assessment.first(withDuplicates,
+        o => o.name === 'fourth')).to.equal(undefined);
     });
 
   });
