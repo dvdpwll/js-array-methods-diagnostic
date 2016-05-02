@@ -8,5 +8,5 @@
   "quotmark": true,
   "devel": true,
   "node": true,
-  "jasmine": true
+  "mocha": true
 }
